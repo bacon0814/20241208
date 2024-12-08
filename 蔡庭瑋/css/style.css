@@ -1,0 +1,193 @@
+
+a {
+    text-decoration: none; /*移除超連結底線*/
+}
+nav {
+    grid-area: nav;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: solid 10px #cebba5;
+    border-radius: 10px;
+}
+/* 確保按鈕樣式清晰 */
+.nav-link {
+    color: #ffffff; /* 確保字體顏色 */
+    text-decoration: none;
+}
+
+.nav-link:hover,.nav-link:focus {
+    color: #ffffff; /* 調整 hover/focus 狀態 */
+    background-color: transparent; /* 確保背景不透明 */
+}
+
+/* 移除透明效果 */
+.nav-link:active {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+/*導覽列三層選單設定*/
+ul {  /*取消ul預設的內縮及項目符號樣式*/
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+.menu {
+    display: inline-block; 
+}
+.menu li {
+    position: relative;
+    white-space: nowrap;
+    border-right: #f7e8dd 1px solid;
+}
+.menu > li:last-child {
+    border-right: none;
+}
+.menu > li {
+    float: left; /*選單第一層由左到右顯示*/
+}
+.menu a { /*選單樣式設定*/
+    display: block;
+    padding: 0 30px;
+    background-color: #212529;
+    color: #f1f1f1;
+    text-decoration: none;
+    line-height: 40px;
+}
+.menu a:hover { /*滑鼠移入按鈕變色*/
+    background-color: #939393;
+    color: #ffffff;
+}
+.menu li:hover > a { /*滑鼠移入第二層選單，第一層按鈕保持變色*/
+    background-color: #939393;
+    color: #ffffff;
+}
+.menu ul {
+    border: #f7e8dd 1px solid;
+    position: absolute;
+    z-index: 99;
+    left: -1px;
+    top: 100%;
+    min-width: 150px;
+}
+.menu ul li {
+    border-bottom: #f7e8dd 1px solid;
+}
+.menu ul li:last-child {
+    border-bottom: none;
+}
+.menu ul ul { /*第三層以後的選單出現位置與第二層不同*/
+    z-index: 999;
+    top: 0;
+    left: 90%;
+}
+.menu ul { /*隱藏次選單*/
+    left: -99999px; /*設定成最大的負數，將元素放到可視範圍外*/
+    opacity: 0; /*完全透明*/
+    -webkit-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+}
+.menu li:hover > ul { /*滑鼠移入展開選單*/
+    opacity: 1;
+    -webkit-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    left: -1px;
+    border-right: 5px;
+}
+.menu li:hover > ul ul { /*滑鼠移入時，次選單之後的選單依然隱藏*/
+    left: -99999px;
+}
+.menu ul li:hover > ul { /*第二層之後的選單位置*/
+    left: 90%;
+}
+
+[id^="text"] {
+    scroll-margin-top: calc(8vh); /* 根據圖示的高度調整 */
+}
+
+.sidebar {
+    position: fixed;
+    background-image: url(bk.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
+.sidebarbox {
+    height: 50vh;
+}
+.sidebarphoto {
+    height: 20vh;
+	border: 0.3rem whitesmoke solid;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        position: static;
+        height: 30vh;
+    }
+    .sidebarbox {
+        height: 30vh;
+    }
+}
+
+h2 {
+	background: linear-gradient(transparent 70%, #dbdbda 70%);
+}
+h4 {
+	color:#a81f0a;
+}
+h5{
+    color:#801a0b;
+}
+p {
+	text-align: justify;
+}
+
+.zoom { 
+	transition: transform .2s; 
+}
+.zoom:hover { 
+	transform: scale(1.5); 
+}
+.highlight {
+    display: inline-block; /* 確保背景只影響文字的範圍 */
+    background-color: rgba(255, 255, 255, 0.5); /* 半透明白色 */
+    padding: 0.2em; /* 增加一點內邊距，讓背景稍微擴展 */
+    border-radius: 15px; /* 添加圓角，使背景更加柔和 */
+}
+#page1 {
+    background-color: rgb(237, 230, 214); /* 背景顏色 */
+    padding: 20px;             /* 內部間距（可選） */
+    border-radius: 10px;       /* 邊角圓滑（可選） */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* 陰影效果（可選） */
+}
+.dropdown-btn {
+    background-color: #e3c17c;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: block;
+}
+
+/* 當文字框內容不可見時的樣式 */
+.dropdown-container {
+    display: none;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+/* 設定箭頭的方向 */
+.arrow {
+    float: right;
+    transition: transform 0.3s;
+}
+.open .arrow {
+    transform: rotate(180deg); /* 順時鐘方向旋轉 180 度 */
+}
+.clear {
+    clear: both;
+}
